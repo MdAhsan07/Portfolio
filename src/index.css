@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: #04070d;
+  color: #e9edf7;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  background: #3b6eff;
+  color: #04070d;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #04070d;
+}
+::-webkit-scrollbar-thumb {
+  background: #162452;
+  border-radius: 999px;
+  border: 2px solid #04070d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b6eff;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b6eff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.08];
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/[0.1];
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs tracking-wider text-accent-cyan/80 uppercase;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink-primary;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-violet;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-violet text-white font-medium text-sm shadow-glow transition-all duration-300 hover:shadow-[0_0_55px_rgba(59,110,255,0.45)] hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl glass text-ink-primary font-medium text-sm transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-0.5 active:translate-y-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
